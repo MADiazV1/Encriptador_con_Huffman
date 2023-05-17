@@ -15,5 +15,17 @@ int main(){
     for (int i = 0; i < miHeap.heap.size(); i++) {
         cout << miHeap.heap[i]->get_letra() << "|" << miHeap.heap[i]->get_cantidad_letras() << endl;
     }
+
+    Nodo* a = miHeap.extraer_min();
+
+    cout << a->get_letra() << endl;
+    cout << a->get_cantidad_letras() << endl;
+
+    cout << "================" << endl;
+
+    for (int i = 0; i < miHeap.heap.size(); i++) {
+        cout << miHeap.heap[i]->get_letra() << "|" << miHeap.heap[i]->get_cantidad_letras() << endl;
+    }
+    
     return 0;
 }

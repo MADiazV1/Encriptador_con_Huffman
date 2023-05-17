@@ -16,6 +16,10 @@ void Heap::subir(int i) {
     }
 }
 
-void Heap::remover(){
-    
+Nodo* Heap::extraer_min(){
+    Nodo* nodoMin;
+    nodoMin = this->heap[0];
+    this->heap[0] = this->heap[heap.size()-1];
+    this->heap.pop_back();
+    return nodoMin;
 }
