@@ -15,5 +15,7 @@ public:
     void agregar(Nodo* valor);
     void subir(int valor);
     Nodo* extraer_min();
+
     void actualizar();
+    void comparador_heap(int indice);
 };

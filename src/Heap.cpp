@@ -23,3 +23,31 @@ Nodo* Heap::extraer_min(){
     this->heap.pop_back();
     return nodoMin;
 }
+
+void Heap::actualizar(){
+    for(int i=this->heap.size()/2 -1; i>=0; i--){
+        cout << "a";
+        comparador_heap(i);
+    }
+    cout << endl;
+}
+
+void Heap::comparador_heap(int indice){
+    int tamanno = this->heap.size();
+    int indiceMenor = indice;
+    int hijoIzq = 2*indice+1;
+    int hijoDer = 2*indice+2;
+
+    if((hijoIzq < tamanno) && (this->heap[hijoIzq]->get_cantidad_letras() < this->heap[indiceMenor]->get_cantidad_letras())){
+        indiceMenor = hijoIzq;
+    }
+
+    if((hijoDer < tamanno) && (this->heap[hijoDer]->get_cantidad_letras() < this->heap[indiceMenor]->get_cantidad_letras())){
+        indiceMenor = hijoDer;
+    }
+
+    if(indiceMenor != indice){
+        swap(this->heap[indice], this->heap[indiceMenor]);
+        comparador_heap(indiceMenor);
+    }
+}
