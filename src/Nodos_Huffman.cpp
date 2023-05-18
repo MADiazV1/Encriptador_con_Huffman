@@ -1,21 +1,34 @@
 #include "Nodos_Huffman.h"
 
 Nodo::Nodo(){
-    this->letra = ' ';
+    this->letra_ch = ' ';
     this->cantidadLetras = 0;    
 }
 
 Nodo::Nodo(char letra, int cantidad){
-    this->letra = letra;
+    this->letra_ch = letra;
     this->cantidadLetras = cantidad;
+    this->huff = false;
+}
+
+Nodo::Nodo(string letras, int cantidad){
+    this->letras = letras;
+    this->cantidadLetras = cantidad;
+    this->huff = true;
+    this->izq = NULL;
+    this->der = NULL;
+}
+
+string Nodo::get_letras(){
+    return this->letras;
 }
 
 char Nodo::get_letra(){
-    return this->letra;
+    return this->letra_ch;
 }
 
 void Nodo::set_letra(char letras){
-    this->letra = letras;
+    this->letra_ch = letras;
 }
 
 int Nodo::get_cantidad_letras(){
@@ -46,4 +59,3 @@ vector<Nodo*> Nodo::vector_nodo_letras(string texto){
     }
     return vector;
 }
-

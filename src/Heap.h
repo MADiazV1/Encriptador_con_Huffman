@@ -18,4 +18,6 @@ public:
 
     void actualizar();
     void comparador_heap(int indice);
+
+    void huffman();
 };

@@ -6,12 +6,18 @@ using namespace std;
 
 class Nodo{
     private:
-        char letra;
+        char letra_ch;
+        string letras;
         int cantidadLetras;
     public:
+        bool huff;
+        Nodo* izq;
+        Nodo* der;
         Nodo();
         Nodo(char letra, int cantidad);
+        Nodo(string letras, int cantidad);
 
+        string get_letras();
         char get_letra();
         void set_letra(char letra);
 
