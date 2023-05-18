@@ -66,20 +66,20 @@ void Heap::huffman(){
             string strDer;
             strDer.push_back(nodoDer->get_letra());
             nuevasLetras = strIzq+strDer;
-            cout << nuevasLetras << endl;
+            // cout << nuevasLetras << endl;
         }else if(nodoIzq->huff && !nodoDer->huff){
             string strDer;
             strDer.push_back(nodoDer->get_letra());
             nuevasLetras = nodoIzq->get_letras() + strDer;
-            cout << nuevasLetras << endl;
+            // cout << nuevasLetras << endl;
         }else if(!nodoIzq->huff && nodoDer->huff){
             string strIzq;
             strIzq.push_back(nodoIzq->get_letra());
             nuevasLetras = strIzq + nodoDer->get_letras();
-            cout << nuevasLetras << endl;
+            // cout << nuevasLetras << endl;
         }else{
             nuevasLetras = nodoIzq->get_letras() + nodoDer->get_letras();
-            cout << nuevasLetras << endl;
+            // cout << nuevasLetras << endl;
         }
 
         int nuevaCantidad = nodoIzq->get_cantidad_letras() + nodoDer->get_cantidad_letras();
@@ -89,6 +89,29 @@ void Heap::huffman(){
         nodoNuevo->der = nodoDer;
 
         this->agregar(nodoNuevo);
-
     }
+}
+
+void Heap::imprimir(){
+    Nodo* nodo = this->heap[0];
+    recorridoEnOrden(nodo);
+    
+}
+
+void Heap::recorridoEnOrden(Nodo* nodo){
+    if (nodo == NULL) {
+        return;
+    }
+
+    // Recorre el subárbol izquierdo
+    recorridoEnOrden(nodo->izq);
+
+    // Imprime el valor del nodo actual
+    if(nodo->huff){
+        cout << "Letras: " << nodo->get_letras() << ", Cantidad: " << nodo->get_cantidad_letras() << endl;
+    }else{
+        cout << "Letras: " << nodo->get_letra() << ", Cantidad: " << nodo->get_cantidad_letras() << endl;
+    }
+    // Recorre el subárbol derecho
+    recorridoEnOrden(nodo->der);
 }

@@ -20,4 +20,7 @@ public:
     void comparador_heap(int indice);
 
     void huffman();
+
+    void imprimir();
+    void recorridoEnOrden(Nodo* nodo);
 };
