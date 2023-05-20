@@ -104,14 +104,20 @@ void Heap::recorridoEnOrden(Nodo* nodo){
     }
 
     // Recorre el subárbol izquierdo
+    cout << "1";
     recorridoEnOrden(nodo->izq);
 
     // Imprime el valor del nodo actual
     if(nodo->huff){
+        cout << endl;
         cout << "Letras: " << nodo->get_letras() << ", Cantidad: " << nodo->get_cantidad_letras() << endl;
     }else{
+        cout << endl;
         cout << "Letras: " << nodo->get_letra() << ", Cantidad: " << nodo->get_cantidad_letras() << endl;
     }
     // Recorre el subárbol derecho
+    cout << "<--" << endl;
+    cout << "0";
     recorridoEnOrden(nodo->der);
+    cout << endl;
 }

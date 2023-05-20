@@ -15,13 +15,13 @@ int main(){
     miHeap.actualizar();
     miHeap.huffman();
 
-    cout << endl;
-    for (int i = 0; i < miHeap.heap.size(); i++) {
-        cout << miHeap.heap[i]->get_letras() << " -> " << miHeap.heap[i]->get_cantidad_letras() << endl;
-        if(miHeap.heap[i]->huff){
-            cout << miHeap.heap[i]->izq->get_letras() << "-&-" << miHeap.heap[i]->der->get_letras() << endl;
-        }
-    }
+    // cout << endl;
+    // for (int i = 0; i < miHeap.heap.size(); i++) {
+    //     cout << miHeap.heap[i]->get_letras() << " -> " << miHeap.heap[i]->get_cantidad_letras() << endl;
+    //     if(miHeap.heap[i]->huff){
+    //         cout << miHeap.heap[i]->izq->get_letras() << "-&-" << miHeap.heap[i]->der->get_letras() << endl;
+    //     }
+    // }
 
     miHeap.imprimir();
 
