@@ -17,9 +17,9 @@ int main(){
     // miHeap.imprimir();
 
     bool activo = true;
-    cout << "/=============================================================================================/" << endl;
-    cout << "*Copia en 'archivo.txt' lo que quiere encriptar.\n*Una vez hecho eso, puedes usar la opcion 2.\n*El programa no mostrara por consola los resultados, solo generara los archivos necesarios" << endl;
-    cout << "/=============================================================================================/" << endl;
+    cout << "/===============================================================================================================/" << endl;
+    cout << "*Copia en 'archivo.txt' lo que quiere encriptar.\n*Una vez hecho eso, puedes usar la opcion 2.\n*El programa no mostrara por consola los resultados, solo generara los archivos necesarios.\n*Todo lo que vaya en 'archivo.txt' debe de ir en texto plano o copiado a mano, pronto se corregira ese detalle.\n*Procurar que 'archivo.txt' tenga texto." << endl;
+    cout << "/===============================================================================================================/" << endl;
     
     while(activo){
     int seleccion;
