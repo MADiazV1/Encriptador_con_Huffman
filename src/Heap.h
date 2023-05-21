@@ -9,9 +9,7 @@ private:
     vector<int> posiciones;
 public:
     vector<Nodo*> heap;
-
     Heap(){}
-
     void agregar(Nodo* valor);
     void subir(int valor);
     Nodo* extraer_min();
