@@ -10,6 +10,7 @@ class Nodo{
         string letras;
         int cantidadLetras;
     public:
+        string recorrido;
         bool huff;
         Nodo* izq;
         Nodo* der;

@@ -9,6 +9,7 @@ Nodo::Nodo(char letra, int cantidad){
     this->letra_ch = letra;
     this->cantidadLetras = cantidad;
     this->huff = false;
+    string recorrido = "";
 }
 
 Nodo::Nodo(string letras, int cantidad){

@@ -7,8 +7,8 @@ void Heap::agregar(Nodo* valor) {
 }
 
 void Heap::subir(int i) {
-    int padre = i / 2;
-    while ((i > 1) && (heap[i]->get_cantidad_letras() < heap[padre]->get_cantidad_letras())) {
+    int padre = (i-1) / 2;
+    while ((i != 0) && (heap[i]->get_cantidad_letras() < heap[padre]->get_cantidad_letras())) {
         swap(heap[i], heap[padre]);
         swap(posiciones[i], posiciones[padre]);
         i = padre;
@@ -81,43 +81,59 @@ void Heap::huffman(){
             nuevasLetras = nodoIzq->get_letras() + nodoDer->get_letras();
             // cout << nuevasLetras << endl;
         }
-
         int nuevaCantidad = nodoIzq->get_cantidad_letras() + nodoDer->get_cantidad_letras();
-
         nodoNuevo = new Nodo(nuevasLetras, nuevaCantidad);
         nodoNuevo->izq = nodoIzq;
         nodoNuevo->der = nodoDer;
-
         this->agregar(nodoNuevo);
+        asignar_recorrido(nodoNuevo, "");
     }
 }
 
 void Heap::imprimir(){
     Nodo* nodo = this->heap[0];
     recorridoEnOrden(nodo);
-    
 }
 
 void Heap::recorridoEnOrden(Nodo* nodo){
     if (nodo == NULL) {
         return;
     }
-
-    // Recorre el subárbol izquierdo
-    cout << "1";
     recorridoEnOrden(nodo->izq);
-
-    // Imprime el valor del nodo actual
     if(nodo->huff){
-        cout << endl;
         cout << "Letras: " << nodo->get_letras() << ", Cantidad: " << nodo->get_cantidad_letras() << endl;
     }else{
-        cout << endl;
-        cout << "Letras: " << nodo->get_letra() << ", Cantidad: " << nodo->get_cantidad_letras() << endl;
+        cout << "Letras: " << nodo->get_letra() << ", Cantidad: " << nodo->get_cantidad_letras() << ", Recorrido: " << nodo->recorrido << endl;
     }
-    // Recorre el subárbol derecho
-    cout << "<--" << endl;
-    cout << "0";
     recorridoEnOrden(nodo->der);
     cout << endl;
+}
+
+void Heap::asignar(){
+    Nodo* nodo = this->heap[0];
+    string recorrido = "";
+    asignar_recorrido(nodo, recorrido);
+}
+
+void Heap::asignar_recorrido(Nodo* nodo, string recorrido) {
+    if (nodo == nullptr) {
+        return;
+    }
+    if (!nodo->huff) {
+        nodo->recorrido = recorrido;
+    }
+    asignar_recorrido(nodo->izq, recorrido + '1');
+    asignar_recorrido(nodo->der, recorrido + '0');
+}
+
+string Heap::encriptar(string texto, vector<Nodo*> vector){
+    string encriptado;
+    for(char item : texto){
+        for(Nodo* nodo: vector){
+            if(item == nodo->get_letra()){
+                encriptado+=nodo->recorrido;
+            }
+        }
+    }
+    return encriptado;
 }

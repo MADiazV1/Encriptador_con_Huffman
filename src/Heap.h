@@ -23,4 +23,9 @@ public:
 
     void imprimir();
     void recorridoEnOrden(Nodo* nodo);
+
+    void asignar();
+    void asignar_recorrido(Nodo* nodo, string recorrido);
+
+    string encriptar(string texto, vector<Nodo*> vector);
 };
